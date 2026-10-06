@@ -1,0 +1,10 @@
+streamlit
+streamlit-webrtc
+requests
+twilio
+pillow
+opencv-python
+numpy
+av
+pydantic
+PyYAML

@@ -1,0 +1,26 @@
+# Python / IDE
+/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.vscode/
+.idea/
+.venv/
+
+# Data & Models
+/Data/
+Release-notes.md
+/Notebooks/yolov8n.pt
+/Notebooks/yolo26n.pt
+*/__pycache__/
+/Example GIFs/media
+.env
+
+# Model Weights (Auto-downloaded)
+backend/models/*.pth
+backend/models/*.pt
+*.pth
+*.pt
+
+# Phase 2 Docs
+phase2.md

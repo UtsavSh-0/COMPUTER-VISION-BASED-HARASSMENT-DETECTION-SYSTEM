@@ -1,0 +1,51 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        USE_GPU: ${USE_GPU:-false}
+    container_name: cctv-threat-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn api:app --host 0.0.0.0 --port 8000
+
+  streamlit-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cctv-threat-streamlit-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Note: Update with your local or production API URL
+      - API_URL=${API_URL:-http://localhost:8000/predict}
+    command: streamlit run streamlit-app.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - api
+
+  streamlit-webcam:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cctv-threat-streamlit-webcam
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Note: Update with your local or production API URL
+      - API_URL=${API_URL:-http://localhost:8000/predict}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+    command: streamlit run streamlit-webcam.py --server.port 8502 --server.address 0.0.0.0
+    depends_on:
+      - api

@@ -1,0 +1,31 @@
+# Unified requirements for local development.
+# Docker deployments use requirements-backend.txt and requirements-frontend.txt.
+
+# Uncomment datasets if you're training the model without downloading the dataset manually.
+# datasets
+
+#Threat Detection Models & Utils
+ultralytics
+torch
+torchvision
+opencv-python
+numpy
+matplotlib
+seaborn
+scikit-learn
+pillow
+fvcore
+av
+iopath
+
+#API & Web App
+fastapi
+pydantic
+python-multipart
+uvicorn
+streamlit
+streamlit-webrtc
+requests
+twilio
+PyYAML
+huggingface_hub

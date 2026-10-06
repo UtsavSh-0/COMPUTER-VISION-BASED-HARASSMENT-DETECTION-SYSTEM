@@ -1,0 +1,21 @@
+# Threat Detection Models & Utils
+ultralytics
+torch
+torchvision
+opencv-python
+numpy
+matplotlib
+seaborn
+scikit-learn
+pillow
+fvcore
+av
+iopath
+
+# API & Utils
+fastapi
+pydantic
+python-multipart
+uvicorn
+PyYAML
+huggingface_hub
