@@ -11,7 +11,7 @@
 
 An intelligent end-to-end computer vision pipeline designed to analyze CCTV video feeds in real-time. By combining multiple AI models, the system automatically detects potential security threats such as drawn weapons, physical violence, and unusual activities, instantly flagging dangers and presenting the alerts through an easy-to-use web interface and robust API.
 
----
+
 
 ## Examples
 
